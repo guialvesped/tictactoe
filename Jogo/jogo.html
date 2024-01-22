@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <header>
+        <title>TicTacToe 2</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js jquery/jquery-3.7.1.min.js">
+        </script>
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    $(btn_start).click(function(){
+                       var p1 = $("input[id=player1]").val();
+                        var p2 = $("input[id=player2]").val();
+
+                        if(p1.trim().length > 0 && p2.trim().length > 0){
+                            startgame();
+                        }
+                        else{
+                            alert("Preencha o(s) Nome(s) antes de começar :)");
+                        };
+                    });
+                });
+                function startgame (){
+                    var countclick = 0
+                    $("table td").click(function(){
+                        countclick++;
+                        if(countclick <= 9){
+                            if(countclick % 2 == 0){
+                                $(this).text("O")
+                            }else{
+                                $(this).text("X")
+                            };
+                            if(countclick == 9){
+                                $("#msg").text("Jogo encerrado")
+                            };
+                            if(verwinner == true){
+                                countclick = 9;
+                            };
+                        };
+                        
+                    });
+                    function verwinner(){
+                        var winner = [
+                            //linhas
+                            [0, 1, 2],[3, 4, 5],[6, 7, 8]
+                            //colunas 
+                            [ 0, 3, 6],[1, 4, 7],[2, 5, 8]
+                            //diagomais
+                            [0, 4, 8],[6, 4, 2]
+                        ];
+                    }
+                };
+        </script>
+    </header>
+    <body>
+        <div class="configurador">
+            <span>X</span><input type="text" id="player1" placeholder="Player 1">
+            VS
+             <input type="text" id="player2" placeholder="Player 2"><span>O</span>
+             <br>
+             <br>
+             <button id="btn_start">Start</button>
+             <div id="msg"></div>
+        </div>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>
