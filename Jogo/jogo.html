@@ -29,26 +29,73 @@
                             }else{
                                 $(this).text("X")
                             };
+                            if(verifywinner() == true){
+                                countclick = 9;
+                            };
                             if(countclick == 9){
                                 $("#msg").text("Jogo encerrado")
                             };
-                            if(verwinner == true){
-                                countclick = 9;
-                            };
+                            
                         };
                         
                     });
-                    function verwinner(){
+                }
+                function verifywinner(){
                         var winner = [
                             //linhas
-                            [0, 1, 2],[3, 4, 5],[6, 7, 8]
+                            [0, 1, 2],
+                            [3, 4, 5],
+                            [6, 7, 8],
                             //colunas 
-                            [ 0, 3, 6],[1, 4, 7],[2, 5, 8]
-                            //diagomais
-                            [0, 4, 8],[6, 4, 2]
+                            [0, 3, 6],
+                            [1, 4, 7],
+                            [2, 5, 8],
+                            //diagonais
+                            [0, 4, 8],
+                            [6, 4, 2]
                         ];
-                    }
-                };
+
+                        var X = new Array(9);
+                        var O = new Array(9);
+                        $("table td").each(function(key, value){
+                            if( $(this).text() == "X" ){
+                                    X[key] = key;
+                            }
+
+                            if( $(this).text() == "O" ){
+                                O[key] = key;
+                            }
+                        });
+                       return defwinner( X, O, winner);
+
+                }
+                function defwinner(){
+                    //percorre linhas
+                    for(var i = 0; i < winner.length; i++ ){
+                            countX = 0 ;
+                            countO = 0 ;
+                            //percorre colunas da linha
+                            for(var y = 0; y < winner[i].length; y++){
+                                if( X[winner[i][y]] == winner[i][y] ){
+                                    countX++;
+                                }
+                                if( O[winner[i][y]] == winner[i][y] ){
+                                    countO++;
+                                }
+                                winner[i][y]
+                            }
+                            if( countX == 3){
+                                alert("X ganhou");
+                                return true;
+                            }
+                            if( countO == 3){
+                                alert("O ganhou");
+                                return true;
+                            }
+                        }
+                }
+
+                
         </script>
     </header>
     <body>
