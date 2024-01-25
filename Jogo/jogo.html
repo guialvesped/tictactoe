@@ -12,10 +12,11 @@
                         var p2 = $("input[id=player2]").val();
 
                         if(p1.trim().length > 0 && p2.trim().length > 0){
+                            $(".msg").text("");
                             startgame();
                         }
                         else{
-                            alert("Preencha o(s) Nome(s) antes de começar :)");
+                            $(".msg").text("Preencha o(s) Nome(s) antes de começar :)");
                         };
                     });
                 });
@@ -25,18 +26,18 @@
                         countclick++;
                         if(countclick <= 9){
                             if(countclick % 2 == 0){
-                                $(this).text("O")
+                                $(this).text("O");
                             }else{
-                                $(this).text("X")
+                                $(this).text("X");
                             };
                             if(verifywinner() == true){
                                 countclick = 9;
                             };
                             if(countclick == 9){
-                                $("#msg").text("Jogo encerrado")
-                            };
+                                $(".msg").append("<br>Jogo encerrado");
+                            }
                             
-                        };
+                        }
                         
                     });
                 }
@@ -69,7 +70,7 @@
                        return defwinner( X, O, winner);
 
                 }
-                function defwinner(){
+                function defwinner(X, O, winner){
                     //percorre linhas
                     for(var i = 0; i < winner.length; i++ ){
                             countX = 0 ;
@@ -84,12 +85,15 @@
                                 }
                                 winner[i][y]
                             }
+                            var p1 = $("input[id=player1]").val();
+                            var p2 = $("input[id=player2]").val();
                             if( countX == 3){
-                                alert("X ganhou");
+                                $(".msg").text("X - " + p1 + " Ganhou ");
                                 return true;
+                                alert("X ganhou")
                             }
                             if( countO == 3){
-                                alert("O ganhou");
+                                $(".msg").text("O - " + p2 + " Ganhou ");
                                 return true;
                             }
                         }
@@ -100,13 +104,13 @@
     </header>
     <body>
         <div class="configurador">
+            <div class="msg"></div>
             <span>X</span><input type="text" id="player1" placeholder="Player 1">
             VS
              <input type="text" id="player2" placeholder="Player 2"><span>O</span>
              <br>
              <br>
              <button id="btn_start">Start</button>
-             <div id="msg"></div>
         </div>
         <table>
             <tr>

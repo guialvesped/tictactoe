@@ -10,6 +10,7 @@ table, .configurador {
 table td {
     border: 1px solid black;
      height: 150px;
+     width: 150px;
      text-align: center;
      font-size: 95px;
 }
@@ -31,4 +32,13 @@ table td {
     padding: 7px 15px;
     background-color: lightgray;
     border: 1px solid gray;
+}
+.msg {
+    width: 100%;
+    padding: 10px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
+    height: 40px;
+    color: gray;
 }
