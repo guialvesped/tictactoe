@@ -6,6 +6,7 @@
         <script type="text/javascript" src="js jquery/jquery-3.7.1.min.js">
         </script>
         <script type="text/javascript">
+            var interval = null
                 $(document).ready(function(){
                     $(btn_start).click(function(){
                        var p1 = $("input[id=player1]").val();
@@ -22,6 +23,7 @@
                 });
                 function startgame (){
                     var countclick = 0
+                     interval = setInterval(timepast, 500)
                     $("table td").click(function(){
                         countclick++;
                         if(countclick <= 9){
@@ -35,6 +37,7 @@
                             };
                             if(countclick == 9){
                                 $(".msg").append("<br>Jogo encerrado");
+                                clearInterval(interval);
                             }
                             
                         }
@@ -98,6 +101,20 @@
                             }
                         }
                 }
+                var inicioJogo = null
+                function timepast(){
+                    if(inicioJogo == null){
+                        inicioJogo = new Date();
+                    }
+                    var dateNow = new Date();
+                    var seg_start = inicioJogo.getSeconds();
+                    var seg_now = dateNow.getSeconds();
+                    var min_start = inicioJogo.getMinutes();
+                    var min_now = dateNow.getMinutes();
+                    var hour_start = inicioJogo.getHours();
+                    var hour_now = dateNow.getHours();
+                    $("#time").text("Inicio do Jogo:" + hour_start + ":" + min_start + ":" + seg_start + "- Hora atual:" + hour_now + ":" + min_now + ":" + seg_now);
+                }
 
                 
         </script>
@@ -129,5 +146,6 @@
                 <td></td>
             </tr>
         </table>
+        <div id="time">00:00</div>
     </body>
 </html>
