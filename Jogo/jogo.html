@@ -113,7 +113,13 @@
                     var min_now = dateNow.getMinutes();
                     var hour_start = inicioJogo.getHours();
                     var hour_now = dateNow.getHours();
-                    $("#time").text("Inicio do Jogo:" + hour_start + ":" + min_start + ":" + seg_start + "- Hora atual:" + hour_now + ":" + min_now + ":" + seg_now);
+                    var time_start = inicioJogo.getTime();
+                    var time_now = dateNow.getTime();
+                    var timedec = time_now - time_start;
+                    var nd = new Date (timedec);
+                    $("#time").text("Inicio do Jogo: " + hour_start + ":" + min_start + ":" + seg_start +
+                     "- Hora atual: " + hour_now + ":" + min_now + ":" + seg_now
+                     + " - Duração" + nd.getMinutes() + ":" + nd.getSeconds());
                 }
 
                 
