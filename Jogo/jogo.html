@@ -29,8 +29,12 @@
                         if(countclick <= 9){
                             if(countclick % 2 == 0){
                                 $(this).text("O");
+                                $("#player2").css("border-color" , "red");
+                                $("#player1").css("border-color" , "lightgray");
                             }else{
                                 $(this).text("X");
+                                $("#player2").css("border-color" , "lightgray");
+                                $("#player1").css("border-color" , "blue");
                             };
                             if(verifywinner() == true){
                                 countclick = 9;
@@ -128,9 +132,9 @@
     <body>
         <div class="configurador">
             <div class="msg"></div>
-            <span>X</span><input type="text" id="player1" placeholder="Player 1">
+            <span class="X">X</span><input type="text" id="player1" placeholder="Player 1">
             VS
-             <input type="text" id="player2" placeholder="Player 2"><span>O</span>
+             <input type="text" id="player2" placeholder="Player 2"><span class="O">O</span>
              <br>
              <br>
              <button id="btn_start">Start</button>
