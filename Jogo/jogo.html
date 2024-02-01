@@ -28,11 +28,11 @@
                         countclick++;
                         if(countclick <= 9){
                             if(countclick % 2 == 0){
-                                $(this).text("O");
+                                $(this).text("O").css("color" , "red");
                                 $("#player2").css("border-color" , "red");
                                 $("#player1").css("border-color" , "lightgray");
                             }else{
-                                $(this).text("X");
+                                $(this).text("X").css("color" , "blue");
                                 $("#player2").css("border-color" , "lightgray");
                                 $("#player1").css("border-color" , "blue");
                             };
@@ -124,7 +124,12 @@
                     $("#time").text("Inicio do Jogo: " + hour_start + ":" + min_start + ":" + seg_start +
                      "- Hora atual: " + hour_now + ":" + min_now + ":" + seg_now
                      + " - Duração" + nd.getMinutes() + ":" + nd.getSeconds());
-                }
+                };
+                $(document).ready(function(){
+                    $("#restart").click(function(){
+                        location.reload(true);
+                    });
+                });
 
                 
         </script>
@@ -157,5 +162,8 @@
             </tr>
         </table>
         <div id="time">00:00</div>
+        <div class="configurador">
+            <button id="restart">Rematch</button>
+        </div>
     </body>
 </html>
