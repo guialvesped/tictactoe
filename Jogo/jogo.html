@@ -29,12 +29,12 @@
                         if(countclick <= 9){
                             if(countclick % 2 == 0){
                                 $(this).text("O").css("color" , "red");
-                                $("#player2").css("border-color" , "red");
-                                $("#player1").css("border-color" , "lightgray");
+                                $("#player1").css("border-color" , "blue");
+                                $("#player2").css("border-color" , "lightgray");
                             }else{
                                 $(this).text("X").css("color" , "blue");
-                                $("#player2").css("border-color" , "lightgray");
-                                $("#player1").css("border-color" , "blue");
+                                $("#player1").css("border-color" , "lightgray");
+                                $("#player2").css("border-color" , "red");
                             };
                             if(verifywinner() == true){
                                 countclick = 9;
@@ -121,9 +121,9 @@
                     var time_now = dateNow.getTime();
                     var timedec = time_now - time_start;
                     var nd = new Date (timedec);
-                    $("#time").text("Inicio do Jogo: " + hour_start + ":" + min_start + ":" + seg_start +
-                     "- Hora atual: " + hour_now + ":" + min_now + ":" + seg_now
-                     + " - Duração" + nd.getMinutes() + ":" + nd.getSeconds());
+                    $("#time").text(//"Inicio do Jogo: " + hour_start + ":" + min_start + ":" + seg_start +
+                     //"- Hora atual: " + hour_now + ":" + min_now + ":" + seg_now+
+                      " Duração " + nd.getMinutes() + ":" + nd.getSeconds());
                 };
                 $(document).ready(function(){
                     $("#restart").click(function(){
@@ -133,16 +133,21 @@
 
                 
         </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     </header>
-    <body>
+    <body class="honk-letter">
         <div class="configurador">
-            <div class="msg"></div>
+            <div class="msg , honk-letter"></div>
             <span class="X">X</span><input type="text" id="player1" placeholder="Player 1">
             VS
              <input type="text" id="player2" placeholder="Player 2"><span class="O">O</span>
              <br>
              <br>
              <button id="btn_start">Start</button>
+             
+            <button id="restart">Rematch</button>
         </div>
         <table>
             <tr>
@@ -161,9 +166,9 @@
                 <td></td>
             </tr>
         </table>
-        <div id="time">00:00</div>
+        
         <div class="configurador">
-            <button id="restart">Rematch</button>
+            <div id="time">00:00</div>
         </div>
     </body>
 </html>

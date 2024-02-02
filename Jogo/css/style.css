@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    background-color: darkslateblue;
 }
 table, .configurador, #time {
     border-collapse: collapse;
@@ -7,39 +8,47 @@ table, .configurador, #time {
     margin:auto;
 }
 table td {
-    border: 1px solid black;
+    border: 3px inset purple;
      height: 150px;
      width: 150px;
      text-align: center;
      font-size: 95px;
+     background-color: blueviolet !important;
 }
 .configurador, #time {
     text-align: center;
     border: none;
     margin-bottom: 10px;
+    padding-top: 5px;
 }
 .configurador input {
     padding: 10px;
 }
 .configurador span {
     background-color: lightgray;
-    padding: 9px 15px 11.5px 15px;
+    padding: 1px 15px 5px 15px;
     vertical-align: baseline;
-    border: solid gray 1px;
+    border: solid gray 1px ;
+    font-size: 30px;
 }
 .configurador button {
+    font-family: "Honk", system-ui;
     padding: 7px 15px;
-    background-color: lightgray;
-    border: 1px solid gray;
+    background-color: blueviolet !important;
+    border: 5px solid purple;
+    border-radius: 9px;
+    font-size: 17px;
 }
 .msg {
     width: 480px;
     padding: 10px;
     background-color: #fafafa;
     margin-bottom: 10px;
-    border: 1px solid lightgray;
-    height: 40px;
+    border: 3px solid purple;
+    height: 60px;
     color: gray;
+    font-size: 25px;
+    background-color: blueviolet;
 }
 #player1 {
     border-color: lightgray ;
@@ -56,5 +65,17 @@ table td {
     background-color: red !important;
     color: white !important;
     border-color: red !important;
+}
 
+.honk-letter {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+#time {
+    font-size: 20px;
 }
